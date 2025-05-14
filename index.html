@@ -1,0 +1,764 @@
+<!DOCTYPE html><html lang="en-US" dir="ltr"><head>
+    <!--meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Our 'MediPet' veterinary hospital management software web application helps streamline your animal clinic with cloud-based practice management software for vets. Features include electronic medical records for pets, appointment scheduling, pet health management, and digital medical charting. Try our vet hospital management system today.">
+    <meta name="keywords" content="veterinary hospital software, practice management software for vets, animal hospital management system, online veterinary software, animal clinic management software">
+    <title>MediPet</title>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/simplebar.min.js"></script>
+    <script src="js/config.js"></script>
+    <link href="css/flatpickr.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="css/simplebar.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="css/theme-rtl.min.css" type="text/css" rel="stylesheet" id="style-rtl">
+    <link href="css/theme.min.css" type="text/css" rel="stylesheet" id="style-default">
+    <link href="css/user-rtl.min.css" type="text/css" rel="stylesheet" id="user-style-rtl">
+    <link href="css/user.min.css" type="text/css" rel="stylesheet" id="user-style-default">
+    <link rel="stylesheet" type="text/css" href="css/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script>
+        var phoenixIsRTL = window.config.config.phoenixIsRTL;
+        if (phoenixIsRTL) {
+            var linkDefault = document.getElementById('style-default');
+            var userLinkDefault = document.getElementById('user-style-default');
+            linkDefault.setAttribute('disabled', true);
+            userLinkDefault.setAttribute('disabled', true);
+            document.querySelector('html').setAttribute('dir', 'rtl');
+        } else {
+            var linkRTL = document.getElementById('style-rtl');
+            var userLinkRTL = document.getElementById('user-style-rtl');
+            linkRTL.setAttribute('disabled', true);
+            userLinkRTL.setAttribute('disabled', true);
+        }
+    </script>
+</head>
+
+<body>
+
+    <main style="--phoenix-scroll-margin-top: 1.2rem;">
+        <div class="bg-white sticky-top landing-navbar" data-navbar-shadow-on-scroll="data-navbar-shadow-on-scroll">
+            <nav class="navbar navbar-expand-lg container-small px-3 px-lg-7 px-xxl-3"><a class="navbar-brand flex-1 flex-lg-grow-0" href="/">
+                    <div class="d-flex align-items-center">
+                        <p class="logo-text ms-2">MediPet </p>
+                    </div>
+                </a>
+                <div class="d-lg-none">
+                    <div class="theme-control-toggle fa-icon-wait px-2"><input class="form-check-input ms-0 theme-control-toggle-input" type="checkbox" data-theme-control="phoenixTheme" value="dark" id="themeControlToggleSm"><label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggleSm" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme"><span class="icon" data-feather="moon"></span></label><label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggleSm" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme"><span class="icon" data-feather="sun"></span></label></div>
+                </div><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item border-bottom border-bottom-lg-0"><a class="nav-link lh-1 py-0 fs--1 fw-bold py-3 active" aria-current="page" href="#">Home</a></li>
+                        <li class="nav-item border-bottom border-bottom-lg-0"><a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#" data-bs-toggle="modal" data-bs-target="#appointmentModal">Book Appointment</a></li>
+                        <li class="nav-item border-bottom border-bottom-lg-0"><a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#services">Services</a></li>
+                        <li class="nav-item border-bottom border-bottom-lg-0"><a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#testimonial">Testimonials</a></li>
+
+                        <li class="nav-item"><a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#contact">Contact Us</a>
+                        </li>
+                    </ul>
+                    <div class="d-grid d-lg-flex align-items-center">
+    <div class="nav-item d-flex align-items-center d-none d-lg-block pe-2">
+        <div class="theme-control-toggle fa-icon-wait px-2">
+            <input class="form-check-input ms-0 theme-control-toggle-input" type="checkbox" data-theme-control="phoenixTheme" value="dark" id="themeControlToggle">
+            <label class="mb-0 theme-control-toggle-label theme-control-toggle-light" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme">
+                <span class="icon" data-feather="moon"></span>
+            </label>
+            <label class="mb-0 theme-control-toggle-label theme-control-toggle-dark" for="themeControlToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Switch theme">
+                <span class="icon" data-feather="sun"></span>
+            </label>
+        </div>
+    </div>
+    <!-- Desktop Sign In -->
+    <div class="nav-item d-none d-lg-block">
+        <a class="btn btn-link text-900 order-1 order-lg-0 ps-3 me-2" href="admin/login.php">Log in</a>    </div>
+
+    <!-- Mobile Sign In -->
+    <div class="nav-item d-flex align-items-center pe-2 d-lg-none">
+        <a class="btn btn-link text-900 order-1 order-lg-0 ps-3 me-2" href="admin/login.php">Log in</a>    </div>
+</div>
+
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="modal fade" id="appointmentModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="true" data-phoenix-modal="data-phoenix-modal" style="--phoenix-backdrop-opacity: 1;">
+            <div class="modal-dialog">
+                <div class="modal-content mt-6">
+                    <div class="modal-body p-0">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="chat-search-box">
+                            <div class="form-icon-container">
+
+                                <form class="needs-validation" id="appointmentForm" novalidate="novalidate">
+
+                                    <div class="form-control">
+                                        <div class="my-3">
+                                            <label class="form-label" for="name">Full Name <span class="text-danger">*</span></label>
+                                            <input class="form-control" id="name" name="name" type="text" required="" placeholder="eg. Kofi Boakye">
+                                            <div class="invalid-feedback">This field is required</div>
+                                        </div>
+
+                                        <div class="my-3">
+                                            <label class="form-label" for="town">Area of residence <span class="text-danger">*</span></label>
+                                            <input class="form-control" id="town" name="o_brgy" type="text" required="" placeholder="eg. Tema">
+                                            <div class="invalid-feedback">This field is required</div>
+                                        </div>
+
+                                        <div class="my-3">
+                                            <label class="form-label" for="status">Appointment Date<span class="text-danger">*</span></label>
+                                            <input class="form-control" id="datetimepicker" name="ap_date" type="date" required="">
+                                            <div class="invalid-feedback">This field is required</div>
+                                        </div>
+
+                                        <div class="my-3">
+                                            <label class="form-label" for="ap_start">Appointment Start <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="ap_start" name="ap_start" required="">
+                                                                                            </select>
+                                            <div class="invalid-feedback">This field is required</div>
+                                        </div>
+
+                                        <div class="my-3">
+                                            <label class="form-label" for="ap_end">Appointment End <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="ap_end" name="ap_end" required="">
+                                                                                            </select>
+                                            <div class="invalid-feedback">This field is required</div>
+                                        </div>
+
+
+                                        <div class="my-3">
+                                            <label class="form-label" for="d_address">Digital Address</label>
+                                            <input class="form-control" id="digital_address" name="town" type="text" placeholder="eg. AH-0000-0000">
+                                        </div>
+
+                                        <div class="my-3">
+                                            <label class="form-label" for="email">Email Adress <span class="text-danger">*</span></label>
+                                            <input class="form-control" id="email" name="email" type="email" required="" placeholder="eg. name@example.com">
+                                            <div class="invalid-feedback">This field is required</div>
+                                        </div>
+                                        <div class="my-3">
+                                            <label class="form-label" for="tel">Phone Number <span class="text-danger">*</span></label>
+                                            <input class="form-control" id="tel" name="phone" type="tel" required="" placeholder="eg. 0244111151">
+                                            <div class="invalid-feedback">This field is required</div>
+                                        </div>
+
+                                        <div class="my-3" style="display: none;">
+                                            <label class="form-label" for="status">Appointment Status <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="status" name="status" data-options="{" removeitembutton":true,"placeholder":true}"="">
+                                                <option value="pending">Pending</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="my-3">
+                                            <label class="form-label" for="ap_reason">Reason of Appointment <span class="text-danger">*</span></label>
+                                            <select class="form-select" id="ap_reason" name="ap_reason" data-choices="data-choices" required="">
+                                                <option value="" selected="" disabled=""> (Select One)</option>
+                                                <option value="Consultation">Consultation</option>
+                                                <option value="Vaccination">Vaccination</option>
+                                                <option value="Laboratory">Laboratory</option>
+                                                <option value="Hospitalization">Hospitalization</option>
+                                                <option value="Check-Up">Check-Up</option>
+                                                <option value="Surgery">Surgery</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                            <div class="invalid-feedback">This field is required</div>
+                                        </div>
+
+                                        <div class="my-3">
+                                            <label class="form-label" for="exampleTextarea">Message/ Appointment
+                                                Note</label>
+                                            <textarea class="form-control" id="exampleTextarea" name="remarks" rows="3" placeholder="Leave a message here.."> </textarea>
+                                        </div>
+                                        <button class="btn btn-primary my-2" name="btn_sbt">Book Now</button>
+                                    </div>
+                                <div id="durationDisplay"></div></form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const dateInput = document.getElementById('datetimepicker');
+                const startTimeSelect = document.getElementById('ap_start');
+                const endTimeSelect = document.getElementById('ap_end');
+                const durationDisplay = document.createElement('div');
+                durationDisplay.id = 'durationDisplay';
+                document.getElementById('appointmentForm').appendChild(durationDisplay);
+
+                function fetchTimeSlots(date) {
+                    fetch(`fetch_time_slots.php?date=${date}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            populateTimeSlots(startTimeSelect, data);
+                            populateTimeSlots(endTimeSelect, data, startTimeSelect.value);
+                            calculateDuration(); // Recalculate duration when time slots are updated
+                        })
+                        .catch(error => console.error('Error fetching time slots:', error));
+                }
+
+                function populateTimeSlots(selectElement, data, startTime = '') {
+                    selectElement.innerHTML = ''; // Clear existing options
+                    data.forEach(time => {
+                        if (!startTime || time > startTime) { // For endTimeSelect, add options that are later than startTime
+                            const option = document.createElement('option');
+                            option.value = time;
+                            option.textContent = time;
+                            selectElement.appendChild(option);
+                        }
+                    });
+                }
+
+                function calculateDuration() {
+                    const startTime = startTimeSelect.value;
+                    const endTime = endTimeSelect.value;
+                    if (startTime && endTime) {
+                        const start = moment(startTime, 'HH:mm');
+                        const end = moment(endTime, 'HH:mm');
+                        const duration = moment.duration(end.diff(start));
+                        const hours = parseInt(duration.asHours());
+                        const minutes = parseInt(duration.asMinutes()) % 60;
+                        durationDisplay.textContent = `Duration: ${hours} hour(s) and ${minutes} minute(s)`;
+                    } else {
+                        durationDisplay.textContent = '';
+                    }
+                }
+
+                // Update end time slots and duration when the start time changes
+                startTimeSelect.addEventListener('change', function() {
+                    const selectedStartTime = this.value;
+                    fetch(`fetch_time_slots.php?date=${dateInput.value}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            populateTimeSlots(endTimeSelect, data, selectedStartTime);
+                            calculateDuration(); // Recalculate duration
+                        });
+                });
+
+                // Listen for changes in the date to update time slots
+                dateInput.addEventListener('change', (e) => {
+                    fetchTimeSlots(e.target.value);
+                });
+
+                // Listen for changes in end time to calculate duration
+                endTimeSelect.addEventListener('change', calculateDuration);
+
+                // Initial fetch for time slots
+                fetchTimeSlots(dateInput.value);
+            });
+
+            document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent default form submission
+
+                if (!this.checkValidity()) {
+                    alert('Please fill in all required fields.');
+                    return; // Stop the function if validation fails
+                }
+
+                const formData = new FormData(this);
+
+                // Proceed with the AJAX request
+                fetch('send_msg/send_appointment.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data); // Show response from the PHP script
+                        $('#appointmentModal').modal('hide'); // Optionally hide modal upon success
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        </script>
+
+
+
+
+
+        <section class="bg-white pb-8" id="home">
+            <div class="container-small hero-header-container px-lg-7 px-xxl-3">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg-auto order-0 order-md-1 text-end order-1">
+                        <div class="position-relative p-5 p-md-7 d-lg-none">
+                            <div class="bg-holder" style="background-image:url(images/bg-23.png);background-size:contain;">
+                            </div>
+                            <!--/.bg-holder-->
+                            <div class="position-relative"><img class="w-100 shadow-lg d-dark-none rounded-2" src="images/bg-31.png" alt="hero-header"><img class="w-100 shadow-lg d-light-none rounded-2" src="images/bg-30.png" alt="hero-header"></div>
+                        </div>
+                        <div class="hero-image-container position-absolute top-0 bottom-0 end-0 d-none d-lg-block">
+                            <div class="position-relative h-100 w-100">
+                                <div class="position-absolute h-100 top-0 d-flex align-items-center end-0 hero-image-container-bg">
+                                    <img class="pt-7 pt-md-0 w-100" src="images/bg-1-2.png" alt="hero-header">
+                                </div>
+                                <div class="position-absolute h-100 top-0 d-flex align-items-center end-0"><img class="pt-7 pt-md-0 w-100 shadow-lg d-dark-none rounded-2" src="images/bg-28.png" alt="hero-header"><img class="pt-7 pt-md-0 w-100 shadow-lg d-light-none rounded-2" src="images/bg-29.png" alt="hero-header"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 text-lg-start text-center pt-8 pb-6 order-0 position-relative">
+                        <h1 class="fs-5 fs-lg-6 fs-md-7 fs-lg-6 fs-xl-7 fs fw-black mb-4"><span class="text-primary me-3">We Care</span>for<br>your animal</h1>
+                        <p class="mb-5">Standard, modern and effective veterinarian healthcare for your pets and
+                            other animals, so you dont look elsewhere. Book an Appointment now</p><a class="btn btn-lg btn-primary rounded-pill me-3" href="#" data-bs-toggle="modal" data-bs-target="#appointmentModal" role="button">Book
+                            Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="pt-15 pb-0" id="services">
+            <div class="container-small px-lg-7 px-xxl-3">
+                <div class="position-relative z-index-2">
+                    <div class="row mb-6">
+                        <div class="col-lg-6 text-center text-lg-start pe-xxl-3">
+                            <h4 class="text-primary fw-bolder mb-4">Services</h4>
+                            <h2 class="mb-3 text-black lh-base">Comprehensive Veterinary Care<br>for Your Beloved
+                                Pets
+                            </h2>
+                            <p class="mb-5">At our veterinary hospital, we provide a wide range of veterinarian
+                                services,
+                                including routine check-ups, vaccinations, surgeries, and more. Additionally, we offer
+                                convenient home services to ensure the well-being of your pets.</p>
+                            <a class="btn btn-lg btn-outline-primary rounded-pill me-2" href="#contact" role="button">Contact
+                                Us<i class="fa-solid fa-angle-right ms-2"></i></a>
+                            <a class="btn btn-lg btn-primary rounded-pill me-2" href="#" role="button" data-bs-toggle="modal" data-bs-target="#appointmentModal">Book Now</a>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 mt-7 text-center text-lg-start">
+                            <div class="h-100 d-flex flex-column justify-content-between">
+                                <div class="border-start-lg border-dashed ps-4">
+                                    <img class="mb-4" src="images/bolt.png" width="48" height="48" alt="">
+                                    <div>
+                                        <h5 class="fw-bolder mb-2">Convenient and Fast</h5>
+                                        <p class="fw-semi-bold lh-sm">Get all the veterinary services you need in one
+                                            place,
+                                            quickly and efficiently. Trust us with the care of your pets!</p>
+                                    </div>
+                                    <div>
+                                        <a class="btn btn-link me-2 p-0 fs--1" href="#contact" role="button">Contact
+                                            us<span class="fa-solid fa-angle-right ms-2"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3 mt-7 text-center text-lg-start">
+                            <div class="h-100 d-flex flex-column">
+                                <div class="border-start-lg border-dashed ps-4">
+                                    <img class="mb-4" src="images/pie.png" width="48" height="48" alt="">
+                                    <div>
+                                        <h5 class="fw-bolder mb-2">Comprehensive Solutions</h5>
+                                        <p class="fw-semi-bold lh-sm">Monitor your pet's health and growth with our
+                                            comprehensive solutions. We provide everything you need at one place.</p>
+                                    </div>
+                                    <div>
+                                        <a class="btn btn-link me-2 p-0 fs--1" href="#" role="button" data-bs-toggle="modal" data-bs-target="#appointmentModal">Book Now<span class="fa-solid fa-angle-right ms-2"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2 align-items-center justify-content-between text-center text-lg-start mb-6 mb-lg-0">
+                        <div class="col-lg-5">
+                            <img class="feature-image mb-9 mb-lg-0 d-dark-none" src="images/24_2.png" height="394" alt="">
+                            <img class="feature-image mb-9 mb-lg-0 d-light-none" src="images/dark_24.png" height="394" alt="">
+                        </div>
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <h6 class="text-primary mb-2 ls-2">REPORTS</h6>
+                            <h3 class="fw-bolder mb-3">Access Comprehensive Reports</h3>
+                            <p class="mb-4 px-md-7 px-lg-0">With our veterinary care services, you can easily access
+                                detailed reports and analysis of your pet's growth. All the necessary filters are
+                                available
+                                to meet your specific needs.</p>
+                            <a class="btn btn-link me-2 p-0 fs--1" href="#!" role="button">Sign In
+                                as a Pet Owner (Coming Soon)<i class="fa-solid fa-angle-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end of .container-->
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+        <div id="testimonial" class="position-relative">
+            <div class="bg-holder z-index-2 d-none d-md-block" style="background-image:url(images/13.png);background-size:auto;background-position:right;">
+            </div>
+            <!--/.bg-holder-->
+            <div class="bg-holder z-index-2 d-none d-md-block d-lg-none d-xl-block" style="background-image:url(images/bg-12.png);background-size:auto;background-position:left;">
+            </div>
+            <!--/.bg-holder-->
+            <div class="bottom-0 start-0 end-0 bg-white">
+                <svg class="w-100 text-soft" viewBox="0 0 1920 368" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1920 0.44L0 367.74V0H1920V0.44Z" fill="currentColor"></path>
+                </svg>
+            </div>
+            <section class="pb-0 bg-white overflow-hidden position-static">
+                <div class="container-small px-lg-7 px-xxl-3">
+                    <div class="row">
+                        <div class="col-lg-6 mb-6 text-center text-lg-start z-index-2">
+                            <h4 class="text-primary fw-bolder mb-3">Testimonials</h4>
+                            <h2 class="mb-3 text-black">More than 2 Hundred happy<br>Customers and counting</h2>
+                            <p class="mb-5">Don't just take our word for it, here's what some of our satisfied
+                                customers have to say about their experience at MediPet.</p>
+                        </div>
+                        <div class="col-lg-6 z-index-2">
+                            <div class="carousel slide" id="carouselExampleIndicators" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="row g-1 g-lg-0 g-xl-1 pb-lg-3 pb-xl-0 ps-lg-1 ps-xl-0">
+                                            <div class="col-lg-6 col-xl-5 text-center">
+                                                <div class="testimonial-avatar-container d-inline-block position-relative">
+                                                    <div class="bg-holder" style="background-image:url(images/bg-2.png);background-size:contain;">
+                                                    </div>
+                                                    <!--/.bg-holder-->
+                                                    <img class="rounded-3 mb-lg-0 opacity-100 position-relative" src="images/61.webp" width="153" height="153" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-xl-7 text-center text-lg-start">
+                                                <div class="mb-4 light">
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                </div>
+                                                <h3 class="fs-1 fs-xl-2 mb-5 lh-sm me-md-7 me-lg-0">Brilliant vet
+                                                    services! Will definitely be my first choice from now on.</h3>
+                                                <h6>Monica</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row g-1 g-lg-0 g-xl-1 pb-lg-3 pb-xl-0 ps-lg-1 ps-xl-0">
+                                            <div class="col-lg-6 col-xl-5 text-center">
+                                                <div class="testimonial-avatar-container d-inline-block position-relative">
+                                                    <div class="bg-holder" style="background-image:url(images/bg-2.png);background-size:contain;">
+                                                    </div>
+                                                    <!--/.bg-holder-->
+                                                    <img class="rounded-3 mb-lg-0 opacity-100 position-relative" src="images/8.webp" width="154" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-xl-7 text-center text-lg-start">
+                                                <div class="mb-4 light">
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                </div>
+                                                <h3 class="fs-1 fs-xl-2 mb-5 lh-sm me-md-7 me-lg-0">"Excellent service
+                                                    and friendly staff. MediPet is everything I was looking for!"
+                                                </h3>
+                                                <h6>Marc</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row g-1 g-lg-0 g-xl-1 pb-lg-3 pb-xl-0 ps-lg-1 ps-xl-0">
+                                            <div class="col-lg-6 col-xl-5 text-center">
+                                                <div class="testimonial-avatar-container d-inline-block position-relative">
+                                                    <div class="bg-holder" style="background-image:url(images/bg-2.png);background-size:contain;">
+                                                    </div>
+                                                    <!--/.bg-holder-->
+                                                    <img class="rounded-3 mb-lg-0 opacity-100 position-relative" src="images/35.webp" width="154" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-xl-7 text-center text-lg-start">
+                                                <div class="mb-4 light">
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                    <span class="fa fa-star text-primary"></span>
+                                                </div>
+                                                <h3 class="fs-1 fs-xl-2 mb-5 lh-sm me-md-7 me-lg-0">"MediPet is
+                                                    all you can ask for. The perfect fit for all your pet care needs!"
+                                                </h3>
+                                                <h6>Axel</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="bg-white" id="contact">
+            <div class="container-small px-lg-7 px-xxl-3">
+                <div class="row mb-3 text-center text-sm-start">
+                    <div class="col-12 mb-4">
+                        <h4 class="text-primary fw-bolder mb-3">Address</h4>
+                        <h2>If you need to find us:</h2>
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <p>Do not stress finding us. Find our geolocation and contacts here.</p>
+                    </div> -->
+                </div>
+                <!-- <div class="row">
+                    <div class="col-12 mb-15">
+                        <div class="googlemap" data-googlemap="data-googlemap" data-gmap="data-gmap" data-latlng="40.7228022,-74.0020158" data-scrollwheel="false" data-zoom="15" style="height: 381px; border-radius:1.5rem;">
+                            <div class="marker-content py-3">
+                                <h5>Google map</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-md-6 mb-5 mb-md-0 text-center text-md-start">
+                    <h3 class="mb-3">Stay connected</h3>
+                    <p class="mb-5">Stay connected with MediPet ; we are available for your necessities at all times.</p>
+                    <div class="d-flex flex-column align-items-center align-items-md-start gap-3 gap-md-0">
+                        <div class="d-md-flex align-items-center">
+                            <div class="icon-wrapper shadow-info">
+                                <span class="uil uil-phone text-primary light fs-4 z-index-1 ms-2"></span>
+                            </div>
+                            <div class="flex-1 ms-3">
+                                <a class="link-900" href="tel:+233 240 60 8256">+254 011 22 8508</a>
+                            </div>
+                        </div>
+                        <div class="d-md-flex align-items-center">
+                            <div class="icon-wrapper shadow-info">
+                                <span class="uil uil-envelope text-primary light fs-4 z-index-1 ms-2"></span>
+                            </div>
+                            <div class="flex-1 ms-3">
+                                <a class="fw-semi-bold text-900" href="mailto:info@outstanden.com">info@MediPet.com</a>
+                            </div>
+                        </div>
+                        <div class="mb-6 d-md-flex align-items-center">
+                            <div class="icon-wrapper shadow-info">
+                                <span class="uil uil-map-marker text-primary light fs-4 z-index-1 ms-2"></span>
+                            </div>
+                            <div class="flex-1 ms-3">
+                                <a class="fw-semi-bold text-900">Kenya, Nairobi</a>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+                                <span class="fa-brands fa-instagram fs-2 text-primary me-3"></span>
+                            </a>
+                            <a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <span class="fa-brands fa-linkedin-in fs-2 text-primary"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <h3 class="mb-3">Drop us a line</h3>
+                    <p class="mb-7">If you have any query or suggestion, we are open to learning from you. Let's
+                        talk, reach us anytime.</p>
+                    <form method="POST" action="send_msg/send_msg.php" class="row g-4" id="contactForm">
+                        <div class="col-12">
+                            <input class="form-control bg-white" type="text" name="name" placeholder="Name" required="required">
+                        </div>
+                        <div class="col-12">
+                            <input class="form-control bg-white" type="email" name="email" placeholder="Email" required="required">
+                        </div>
+                        <div class="col-12">
+                            <textarea class="form-control bg-white" rows="6" name="msg" placeholder="Message" required="required"></textarea>
+                        </div>
+                        <div class="col-12 d-grid">
+                            <button class="btn btn-outline-primary" name="btn_sbt" type="submit">Submit</button>
+                        </div>
+                        <div class="feedback"></div>
+                    </form>
+                </div>
+
+                <!-- Your existing scripts -->
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var contactForm = document.getElementById('contactForm');
+
+                        contactForm.addEventListener('submit', function(e) {
+                            e.preventDefault(); // Prevent the default form submission
+
+                            var formData = new FormData(contactForm);
+
+                            fetch('send_msg/send_msg.php', {
+                                    method: 'POST',
+                                    body: formData,
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        // Show Toastify notification for success
+                                        Toastify({
+                                            text: data.success,
+                                            duration: 3000,
+                                            gravity: 'top',
+                                            position: 'right',
+                                            backgroundColor: 'linear-gradient(to right, #00b09b, #96c93d)',
+                                        }).showToast();
+
+                                        // Optionally, reset the form or perform other actions
+                                        contactForm.reset();
+                                    } else if (data.error) {
+                                        // Show Toastify notification for an error
+                                        Toastify({
+                                            text: data.error,
+                                            duration: 3000,
+                                            gravity: 'top',
+                                            position: 'right',
+                                            backgroundColor: 'linear-gradient(to right, #ff416c, #ff4b2b)',
+                                        }).showToast();
+                                    }
+                                });
+                        });
+                    });
+                </script>
+            </div>
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="bg-white pb-0">
+            <div class="container-small px-lg-7 px-xxl-3">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <div class="card py-md-9 px-md-13 border-0 z-index-1 shadow-lg cta-card">
+                            <div class="bg-holder" style="background-image:url(images/bg-18.png);background-position:right;background-size:auto;">
+                            </div>
+                            <div class="card-body position-relative">
+                                <img class="img-fluid mb-5 d-dark-none" src="images/27.png" width="210" alt="...">
+                                <img class="img-fluid mb-5 d-light-none" src="images/dark_27.png" width="210" alt="...">
+                                <h1 class="fs-2 fs-sm-4 fs-lg-6 fw-bolder lh-sm mb-3">
+                                    Join <span class="gradient-text-primary mx-2">MediPet </span> Today
+                                </h1>
+                                <form class="d-flex justify-content-center mb-3 px-xxl-12">
+                                    <div class="d-grid d-sm-block"></div>
+                                    <input class="form-control me-3" id="ctaEmail1" type="email" placeholder="Email" aria-describedby="ctaEmail1">
+                                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                                </form>
+                                <p>Best veterinary services in town, only at MediPet </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+        <div class="position-relative">
+            <div class="bg-holder footer-bg" style="background-image:url(images/bg-19.png);background-size:auto;"></div>
+            <!--/.bg-holder-->
+            <div class="bg-holder" style="background-image:url(images/bg-right-20.png);background-position:right;background-size:auto;">
+            </div>
+            <!--/.bg-holder-->
+            <div class="bg-holder" style="background-image:url(images/bg-left-20.png);background-position:left;background-size:auto;">
+            </div>
+            <!--/.bg-holder-->
+            <div class="position-relative"><svg class="w-100 text-white" preserveAspectRatio="none" viewBox="0 0 1920 368" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1920 0.44L0 367.74V0H1920V0.44Z" fill="currentColor"></path>
+                </svg>
+
+                <!-- ============================================-->
+                <!-- <section> begin ============================-->
+                <section style="padding-top:250px;">
+                    <div class="container-small px-lg-7 px-xxl-3">
+                        <footer class="text-white text-center py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-7 align-self-center text-lg-end text-center mt-4 mt-lg-0 order-lg-2 order-2">
+                <!-- Opening Hours Section -->
+                <div class="d-inline-block text-start text-white w-auto mb-3" style="background: url('images/bg-19.png') center/cover no-repeat; border-radius:12px; padding:20px; min-width:270px;">
+                    <h5 class="fw-bolder mb-3" style="font-size:1.1rem; color: #e0e0e0;">Opening Hour</h5>
+                    <div class="d-flex justify-content-between border-bottom py-1">
+                        <span style="color: #e0e0e0;">Mon - Tues</span>
+                        <span style="color: #e0e0e0;">09:00AM - 6:00PM</span>
+                    </div>
+                    <div class="d-flex justify-content-between border-bottom py-1">
+                        <span style="color: #e0e0e0;">Wed - Thu</span>
+                        <span style="color: #e0e0e0;">09:00AM - 6:00PM</span>
+                    </div>
+                    <div class="d-flex justify-content-between border-bottom py-1">
+                        <span style="color: #e0e0e0;">Fri - Sat</span>
+                        <span style="color: #e0e0e0;">09:00AM - 6:00PM</span>
+                    </div>
+                    <div class="d-flex justify-content-between py-1">
+                        <span style="color: #e0e0e0;">Sunday</span>
+                        <span style="color: #e0e0e0;">Emergency Only</span>
+                    </div>
+                </div>
+                <p class="text-white light mb-2">
+                    © <span id="currentYear">2025</span> MediPet . Powered by 
+                    <a href="https://outstanden.com" class="text-white text-underline">Goggle Technologies</a>.
+                </p>
+            </div>
+            <div class="col-12 col-lg-5 mb-4 mb-lg-0 text-lg-start text-center order-lg-1 order-1">
+                <a href="#">
+                    <h3 class="text-white light mb-2">MediPet</h3>
+                </a>
+                <p class="text-white opacity-50 light mb-0">Providing the best vet services you could experience</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Set the current year dynamically
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    </script>
+</footer>
+                </section><!-- <section> close ============================-->
+                <!-- ============================================-->
+
+            </div>
+        </div>
+
+    </main><!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="js/popper.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="assets/js/flatpickr.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/anchor.min.js"></script>
+    <script src="js/is.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/lodash.min.js"></script>
+    <script src="polyfill.io/v3/polyfill.min58be.js?features=window.scroll"></script>
+    <script src="js/list.min.js"></script>
+    <script src="js/feather.min.js"></script>
+    <script src="js/dayjs.min.js"></script>
+    <script src="js/phoenix.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/packery-mode.pkgd.min.js"></script>
+    <script src="js/BigPicture.js"></script>
+    <script src="js/countUp.umd.js"></script>
+
+
+</body></html>
