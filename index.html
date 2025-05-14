@@ -48,6 +48,22 @@
             userLinkRTL.setAttribute('disabled', true);
         }
     </script>
+    <style>
+  /* Add this to your <head> or your main CSS file */
+
+  .navbar-nav .nav-link,
+  .navbar-nav .dropdown-toggle {
+    color: #000 !important; /* Set navbar text to black */
+    transition: color 0.2s;
+  }
+
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link:focus,
+  .navbar-nav .dropdown-toggle:hover,
+  .navbar-nav .dropdown-toggle:focus {
+    color: #d1007c !important; /* Keep magenta or your preferred hover color */
+  }
+</style>
 </head>
 
 <body>
@@ -56,7 +72,7 @@
         <div class="bg-white sticky-top landing-navbar" data-navbar-shadow-on-scroll="data-navbar-shadow-on-scroll">
             <nav class="navbar navbar-expand-lg container-small px-3 px-lg-7 px-xxl-3"><a class="navbar-brand flex-1 flex-lg-grow-0" href="/">
                     <div class="d-flex align-items-center">
-                        <p class="logo-text ms-2">MediPet </p>
+                        <p class="logo-text ms-2" style="color: #6c7a89;">MediPet </p>
                     </div>
                 </a>
                 <div class="d-lg-none">
