@@ -1,0 +1,19 @@
+/* Make all navbar links white by default */
+.navbar-nav .nav-link {
+  color: #fff !important;
+  transition: color 0.2s;
+}
+
+/* Magenta on hover and when active (clicked/current page), except Home */
+.navbar-nav .nav-link:not([aria-current="page"]):hover,
+.navbar-nav .nav-link:not([aria-current="page"]):focus,
+.navbar-nav .nav-link:not([aria-current="page"]).active {
+  color: #d5007d !important;
+}
+
+/* Magenta on hover for Home only */
+.navbar-nav .nav-link[aria-current="page"]:hover,
+.navbar-nav .nav-link[aria-current="page"]:focus,
+.navbar-nav .nav-link:not([aria-current="page"]).active  {
+  color: #d5007d !important;
+}

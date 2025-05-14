@@ -64,14 +64,34 @@
                 </div><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item border-bottom border-bottom-lg-0"><a class="nav-link lh-1 py-0 fs--1 fw-bold py-3 active" aria-current="page" href="#">Home</a></li>
-                        <li class="nav-item border-bottom border-bottom-lg-0"><a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#" data-bs-toggle="modal" data-bs-target="#appointmentModal">Book Appointment</a></li>
-                        <li class="nav-item border-bottom border-bottom-lg-0"><a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#services">Services</a></li>
-                        <li class="nav-item border-bottom border-bottom-lg-0"><a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#testimonial">Testimonials</a></li>
-
-                        <li class="nav-item"><a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#contact">Contact Us</a>
-                        </li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center w-100">
+                        <li class="nav-item border-bottom border-bottom-lg-0">
+        <a class="nav-link lh-1 py-0 fs--1 fw-bold py-3 active" aria-current="page" href="#">Home</a>
+    </li>
+    <!-- About dropdown -->
+    <li class="nav-item dropdown border-bottom border-bottom-lg-0">
+        <a class="nav-link lh-1 py-0 fs--1 fw-bold py-3 dropdown-toggle"
+           href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        About
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+        <li>
+            <a class="dropdown-item fw-bold" href="about.html#team">Meet Team</a>
+        </li>
+    </ul>
+</li>
+    <li class="nav-item border-bottom border-bottom-lg-0">
+        <a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#" data-bs-toggle="modal" data-bs-target="#appointmentModal">Book Appointment</a>
+    </li>
+    <li class="nav-item border-bottom border-bottom-lg-0">
+        <a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#services">Services</a>
+    </li>
+    <li class="nav-item border-bottom border-bottom-lg-0">
+        <a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#testimonial">Testimonials</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link lh-1 py-0 fs--1 fw-bold py-3" href="#contact">Contact Us</a>
+    </li>
                     </ul>
                     <div class="d-grid d-lg-flex align-items-center">
     <div class="nav-item d-flex align-items-center d-none d-lg-block pe-2">
@@ -86,12 +106,16 @@
         </div>
     </div>
     <!-- Desktop Sign In -->
+    <!--
     <div class="nav-item d-none d-lg-block">
         <a class="btn btn-link text-900 order-1 order-lg-0 ps-3 me-2" href="admin/login.php">Log in</a>    </div>
+    -->
 
     <!-- Mobile Sign In -->
+    <!--
     <div class="nav-item d-flex align-items-center pe-2 d-lg-none">
         <a class="btn btn-link text-900 order-1 order-lg-0 ps-3 me-2" href="admin/login.php">Log in</a>    </div>
+    -->
 </div>
 
                 </div>
