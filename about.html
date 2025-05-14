@@ -9,9 +9,23 @@
   <style>
     .doctor-card img {
       height: 250px;
+      width: 100%;
       object-fit: cover;
       border-top-left-radius: 1rem;
       border-top-right-radius: 1rem;
+      background: #f8f9fa;
+      display: block;
+    }
+
+    /* Make doc4.png behave like the others */
+    .doctor-card img[src*="doc4.png"] {
+      object-fit: cover;
+      height: 250px;
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      background: #f8f9fa;
+      display: block;
     }
 
     .doctor-card {
@@ -23,10 +37,54 @@
     .doctor-card:hover {
       transform: scale(1.03);
     }
+
+    body {
+      background: url('images/bg-19.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Make about section text white */
+    #team,
+    #team h1,
+    #team p,
+    #team .lead,
+    #team .display-4 {
+      color: #fff !important;
+    }
   </style>
 </head>
 
 <body>
+  <!-- Add this navbar at the top of your <body>, before the <section id="team"> -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">MediPet</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html#team">Meet Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#testimonial">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#contact">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
   <!-- Add this anchor before your team section -->
   <section id="team">
     <div class="container py-5">
@@ -44,18 +102,33 @@
     const doctors = [
       {
         name: "Dr. Emily Carter",
-        image: "images/doc1.jpg",
+        image: "images/doc1.jpeg",
         services: ["Surgery", "Vaccination", "Dental Care"]
       },
       {
-        name: "Dr. Noah Kim",
+        name: "Dr. Valeria Smith",
         image: "images/doc2.jpg",
         services: ["Emergency Care", "Routine Checkups", "Dermatology"]
       },
       {
         name: "Dr. Henry Malik",
-        image: "images/doc3.jpg", // Changed from dr-aisha.jpg to doc3.jpg
+        image: "images/doc3.jpg",
         services: ["Orthopedics", "Rehabilitation", "Nutrition"]
+      },
+      {
+        name: "Dr. Sophia Johnson",
+        image: "images/doc4.jpg",
+        services: ["Cardiology", "Ultrasound", "Radiology"]
+      },
+      {
+        name: "Dr. Priya Patel",
+        image: "images/doc5.jpg",
+        services: ["Exotic Pets", "Microchipping", "Behavioral Counseling"]
+      },
+      {
+        name: "Dr. Lucas Wang",
+        image: "images/doc6.webp",
+        services: ["Internal Medicine", "Endoscopy", "Geriatric Care"]
       }
     ];
 
@@ -78,6 +151,13 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <footer class="text-center py-4 mt-5">
+    <span style="color: #fff;">Built with
+      <span style="color: #e25555; font-size: 1.2em;" aria-label="love" title="love">&#10084;</span>
+      by MediPet Technologies
+    </span>
+  </footer>
 </body>
 
 </html>
